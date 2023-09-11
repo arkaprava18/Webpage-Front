@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+
+/* img stucter */
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('background.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+
+
+
+
+header{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    padding: 20px 100px;
+    /* background: red; */
+    /* oneline logo to navbar */
+    display:flex;
+
+    /* right to left conner */
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+
+/* logo */
+.logo{
+    font-size: 2em;
+    color:#fff;
+    user-select:none;
+}
+
+.navigation a{
+    position:relative;
+    font-size: 1.1em;
+    color:#fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+
+.navigation a::after{
+    content:'';
+    position: absolute;
+    left:0px;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius:5px;
+    /* under line right to left */
+    transform-origin:right;
+    transform: scaleX(0);
+    /* dile for transform enimation */
+    transition: transform .5s;
+}
+
+.navigation a:hover::after{
+    /* underline */
+    transform-origin: left;
+    /* under line size */
+    transform: scaleX(1);
+
+}
+
+
+
+
+
+
+
+
+
+/* login */
+.navigation .btnLogin-popup{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border:2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color:#fff;
+    font-weight: 500;
+    margin-left:40px;
+    transition: .5s;
+}
+
+
+
+.navigation .btnLogin-popup:hover{
+    background: #fff;
+    color:#162938;
+}
+
+
+
+/* border login page */
+.wrapper{
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,5);
+    border-radius: 20px;
+    /* blur box */
+    backdrop-filter:blur(20px);
+    /* shadow */
+    box-shadow:0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* crosh overflow hidden X kon ta mura hochiloni */
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform .5s ease,height .2s ease;
+}
+
+/* login js click to open page*/
+.wrapper.active-popup {
+    transform: scale(1);
+}
+
+/* link js lomba choto click */
+.wrapper.active{
+    height: 520px
+}
+
+
+
+
+.wrapper .from-box{
+    width: 100%;
+    padding: 40px;
+
+}
+
+/* login */
+.wrapper .from-box.login{
+    /* display: none; */
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+/* active */
+.wrapper.active .from-box.login{
+    transition: none;
+    transform:translateX(-400px) ;
+}
+
+/* register */
+.wrapper .form-box.register {
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+
+/* active */
+.wrapper.active .form-box.register{
+    /* display: none; */
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+ 
+/* icon close sembol X */
+.wrapper .icon-close{
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #162938;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* X style kon ta murar jono */
+    border-bottom-left-radius:20px ;
+    cursor: pointer;
+    z-index: 1;
+}
+
+
+
+/* login center write */
+.from-box h2{
+    font-size: 2em;
+    color:#162938;
+    text-align: center;
+}
+
+/* line password and email ka pass */
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
+}
+
+/* Email and password write up */
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left:5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    /* dile for 0.5s */
+    transition: .5s;
+
+}
+
+/* email and password up an down write click up cursur   */
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top:-5px;
+}
+
+
+
+
+/* password and email  */
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    /* font size */
+    font-size: 1em;
+    color: #162938;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+/* icon right ke liya */
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #162938;
+    line-height: 57px;
+}
+
+/* remember forgot */
+.remember-forgot{
+    font-size: .9em;
+    color: #162938;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+/* black tick */
+.remember-forgot label input{
+    accent-color: #162938;
+    margin-right: 3px;
+}
+
+.remember-forgot a{
+    color: #162938;
+    text-decoration: none;
+}
+/* password corser line  */
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+ 
+/* login page big */
+.btn{
+    width: 100%;
+    height: 45px;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius:6px ;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+}
+
+
+/* login register */
+
+.login-register{
+    font-size: .9em;
+    color: #162938;
+    text-align:center;
+    font-weight: 500;
+    /* gap */
+    margin: 25px 0 10px;
+}
+
+
+/* Register */
+
+.login-register p a{
+    color:#162938;
+    text-decoration:none;
+    font-weight: 600;
+}
+
+/* Register mouse point underline */
+.login-register p a:hover{
+    text-decoration: underline;
+}
